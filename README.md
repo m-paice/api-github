@@ -22,6 +22,8 @@ useEffect(() => console.log(`New count ${count}`), [count]);
 
 ## useReducer
 
+Parece um pouco o useState, porém ele não te devolve uma função para alterar o estado, e sim uma função de dispatch, que envia uma mensagem de como o estado deve ser alterado.
+
 Aceita um redutor do tipo (state, action) => newState e retorna o estado atual emparelhado com um método dispatch (se você estiver familiarizado com o Redux, você já sabe como isso funciona).
 
 ```javascript
