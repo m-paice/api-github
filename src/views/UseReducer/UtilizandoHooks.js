@@ -9,7 +9,7 @@ import React, { useReducer, useEffect } from 'react';
  * @description Importação dos componentes utilizado pelo useReducer
  */
 import {
-  initialState, cliente, novoCliente,
+  initialState, cliente, Creators as clienteActions,
 } from '../../store/ducks/cliente';
 
 /**
@@ -28,7 +28,7 @@ const UtilizandoHooks = () => {
 
       <button
         type="button"
-        onClick={() => dispatch(novoCliente(
+        onClick={() => dispatch(clienteActions.novoCliente(
           'Rainã Pepe', 'raina.pepe@jbtec.com.br', '(14) 99889-1198',
         ))}
       > Novo
@@ -39,14 +39,12 @@ const UtilizandoHooks = () => {
 
 export default UtilizandoHooks;
 
-// import React, { useReducer } from 'react';
-
-// const UtilizandoHooks = () => {
+// const UtilizandoHook = () => {
 //   const reducer = (state, action) => {
-//     switch (action.type) {
-//       case 'ADD_COUNT':
+//     switch (action) {
+//       case 'adicionar':
 //         return { count: state.count + 1 };
-//       case 'REMOVE_COUNT':
+//       case 'remover':
 //         return { count: state.count - 1 };
 //       default:
 //         return state;
@@ -57,11 +55,13 @@ export default UtilizandoHooks;
 
 //   return (
 //     <div>
-//       <p>{`Count: ${state.count}`}</p>
-//       <button type="button" onClick={() => dispatch({ type: 'ADD_COUNT' })}> + </button>
-//       <button type="button" onClick={() => dispatch({ type: 'REMOVE_COUNT' })}> - </button>
+//       <div> Count: {state.count} </div>
+
+//       <button type="button" onClick={() => dispatch('adicionar')}> + </button>
+//       <button type="button" onClick={() => dispatch('remover')}> - </button>
 //     </div>
+
 //   );
 // };
 
-// export default UtilizandoHooks;
+// export default UtilizandoHook;

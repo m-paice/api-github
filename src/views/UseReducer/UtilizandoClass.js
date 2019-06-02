@@ -7,26 +7,29 @@ import React from 'react';
 
 /** Importação do conector dos states e dispatch actions */
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
 import PropTypes from 'prop-types';
 
 /** Importação da action */
-import { novoCliente } from '../../store/ducks/cliente';
+import { Creators as clienteActions } from '../../store/ducks/cliente';
 
 class UtilizandoClass extends React.Component {
   componentDidMount() {} // Apenas para informar que utilizarei classe
 
   render() {
-    const { clientes, adicionarCliente } = this.props;
+    const { all, novoCliente } = this.props;
 
     return (
       <div>
-        <p>{`Nomes: ${clientes.map(v => v.nome)}`}</p>
+        {all && <p>{`Id: ${all.map(v => v)}`}</p>}
 
         <button
           type="button"
-          onClick={() => adicionarCliente(
-            'Rainã Pepe', 'raina.pepe@jbtec.com.br', '(14) 99889-1198',
+          onClick={() => novoCliente(
+            {
+              id: Math.random(), nome: 'Rainã Pepe', email: 'raina.pepe@jbtec.com.br', telefone: '(14) 99889-1198',
+            },
           )}
         > Novo
         </button>
@@ -36,12 +39,8 @@ class UtilizandoClass extends React.Component {
 }
 
 UtilizandoClass.propTypes = {
-  clientes: PropTypes.arrayOf(PropTypes.shape({
-    nome: PropTypes.string,
-    email: PropTypes.string,
-    telefone: PropTypes.string,
-  })).isRequired,
-  adicionarCliente: PropTypes.func.isRequired,
+  all: PropTypes.arrayOf(PropTypes.number).isRequired,
+  novoCliente: PropTypes.func.isRequired,
 };
 
 /**
@@ -49,15 +48,14 @@ UtilizandoClass.propTypes = {
  * @param {Object} state
  */
 const mapStateToProps = state => ({
-  clientes: state.cliente.clientes,
+  all: state.cliente.all,
 });
 
 /**
  * @description Disparar funções para alterar o estado da aplicação
  * @param {Function} dispatch
  */
-const mapDispatchToProps = dispatch => ({
-  adicionarCliente: (nome, email, telefone) => dispatch(novoCliente(nome, email, telefone)),
-});
+const mapDispatchToProps = dispatch => bindActionCreators(clienteActions, dispatch);
+
 
 export default connect(mapStateToProps, mapDispatchToProps)(UtilizandoClass);

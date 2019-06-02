@@ -1,46 +1,36 @@
 /**
  * @author Matheus Paice <matheus.ferreira@jbtec.com.br>
  * @description Action e Reducer cliente
+ * TODO: Itilizar typescript e redux-saga
  */
 
 /**
   * @description Declaração de types do reducer
   */
 export const Types = {
-  NOVO_CLIENTE: 'NOVO_CLIENTE',
+  NAO_INICIADO: '@cliente/NAO_INICIADO',
+  CARREGAMENTO_INICIADO: '@cliente/CARREGAMENTO_INICIADO',
+  CARREGAMENTO_SUCESSO: '@cliente/CARREGAMENTO_SUCESSO',
+  CARREGAMENTO_FALHA: '@cliente/LOAD_FAILED',
 };
 
 /**
- * @description Action para adionar novo cliente
- * @param {String} nome
- * @param {String} email
- * @param {String} telefone
+ * @description Actions cliente
  */
-export function novoCliente(nome, email, telefone) {
-  return {
-    type: Types.NOVO_CLIENTE,
-    data: {
-      nome,
-      email,
-      telefone,
-    },
-  };
-}
+export const Creators = {
+  novoCliente: values => ({
+    type: Types.CARREGAMENTO_INICIADO,
+    data: values,
+  }),
+};
 
 /**
  * @description Dados iniciais do reducer cliente
  */
 export const initialState = {
-  clientes: [
-    { nome: 'Matheus Paice', email: 'matheus.paice@gmail.com', telefone: '(14) 99889-1198' },
-  ],
-  cliente: {
-    nome: 'Matheus',
-    email: 'matheus.paice@gmail.com',
-    telefone: '(14) 99889-1198',
-  },
-  carregando: false,
-  erro: false,
+  byId: {},
+  all: [Math.random(), Math.random()],
+  status: Types.NAO_INICIADO,
 };
 
 /**
@@ -50,13 +40,19 @@ export const initialState = {
  */
 export const cliente = (state = initialState, action) => {
   switch (action.type) {
-    case Types.NOVO_CLIENTE:
-      return {
-        clientes: [...state.clientes, action.data],
-        cliente: action.data,
-        carregando: false,
-        erro: false,
-      };
+    case Types.CARREGAMENTO_INICIADO:
+      return Object.assign({}, state, {
+        status: Types.CARREGAMENTO_INICIADO,
+      });
+    case Types.CARREGAMENTO_SUCESSO:
+      return Object.assign({}, state, {
+        all: [...state.all, action.data],
+        status: Types.CARREGAMENTO_SUCESSO,
+      });
+    case Types.CARREGAMENTO_FALHA:
+      return Object.assign({}, state, {
+        status: Types.CARREGAMENTO_FALHA,
+      });
     default:
       return state;
   }
