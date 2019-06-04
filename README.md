@@ -30,6 +30,15 @@ Aceita um redutor do tipo (state, action) => newState e retorna o estado atual e
 const [state, dispatch] = useReducer(reducer, initialArg);
 ```
 
+## useContext
+
+Aceita um objeto de contexto (o valor retornado de React.createContext) e retorna o valor atual do contexto. O valor de contexto atual é determinado pela prop value do<MyContext.Provider>mais próximo acima do componente de chamada na árvore.
+
+```javascript
+const value = useContext(MyContext);
+
+```
+
 ### Referencia
 
 > https://reactjs.org/docs/hooks-reference.html

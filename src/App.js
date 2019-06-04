@@ -14,6 +14,12 @@ import Effect from './views/UseState/Effect';
 import UtilizandoClass from './views/UseReducer/UtilizandoClass';
 import UtilzandoHooks from './views/UseReducer/UtilizandoHooks';
 
+/** Exemplos com useContext */
+import HooksContext from './views/UseContext/HooksContext';
+
+import ModeloSemContext from './views/UseContext/ModeloSemContext';
+import ModeloContext from './views/UseContext/ModeloContext';
+
 const App = () => (
   <Provider store={store}>
     <Router>
@@ -22,6 +28,9 @@ const App = () => (
       <Route path="/effect" component={Effect} />
       <Route path="/utilizandoClass" component={UtilizandoClass} />
       <Route path="/utilizandoHooks" component={UtilzandoHooks} />
+      <Route path="/hooksContext" component={HooksContext} />
+      <Route path="/modeloSemContext" component={ModeloSemContext} />
+      <Route path="/ModeloContext" component={ModeloContext} />
     </Router>
   </Provider>
 );
