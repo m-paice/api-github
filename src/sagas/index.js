@@ -4,10 +4,10 @@
  */
 
 import { all } from 'redux-saga/effects';
-import watcherCliente from './cliente';
+import watcherUsuario from './usuario';
 
 function* sagas() {
-  yield all([watcherCliente()]);
+    yield all([watcherUsuario()]);
 }
 
 export default sagas;
