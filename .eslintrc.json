@@ -4,7 +4,7 @@
         "browser": true,
         "jest": true
     },
-    "plugins": ["react", "jsx-a11y", "import", "prettier"],
+    "plugins": ["react", "jsx-a11y", "import", "prettier", "no-unused-expressions"],
     "extends": ["airbnb", "prettier"],
     "rules": {
         "react/jsx-filename-extension": [
