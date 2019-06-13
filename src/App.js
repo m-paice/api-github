@@ -10,6 +10,8 @@ import Home from './views/Home';
 import Usuario from './views/Usuario/Usuario';
 import Repositorio from './views/Repositorios/Repositorio';
 
+import GlobalStyle from './css/styleGlobal';
+
 const App = () => (
   <Provider store={store}>
     <Router>
@@ -17,7 +19,7 @@ const App = () => (
       <Route path="/usuario/:id" component={Usuario} />
       <Route path="/exibirRepositorio/:id" component={Repositorio} />
     </Router>
-    {/* <Footer /> */}
+    <GlobalStyle />
   </Provider>
 );
 

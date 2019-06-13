@@ -1,9 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import { Pesquisar } from '../../css/styles';
+
 const Input = props => {
     const { input, placeholder } = props;
-    return <input placeholder={placeholder} onChange={input.onChange} value={input.value} />;
+    return <Pesquisar placeholder={placeholder} onChange={input.onChange} value={input.value} />;
 };
 
 Input.propTypes = {

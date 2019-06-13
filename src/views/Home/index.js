@@ -17,6 +17,8 @@ import Input from '../../components/Input';
 
 import ListaUsuarios from '../Usuario/ListaUsuarios';
 
+import { Container, BotaoPesquisar } from '../../css/styles';
+
 class Home extends React.Component {
     componentDidMount() {}
 
@@ -33,16 +35,16 @@ class Home extends React.Component {
         const { handleSubmit } = this.props;
 
         return (
-          <div>
+          <Container>
             <Form onSubmit={handleSubmit(v => this.handleSubmit(v))}>
               <Field name="search" component={Input} labelText="Pesqusiar" placeholder="Digite nome do usuário" />
-              <input type="submit" value="Buscar" />
+              <BotaoPesquisar type="submit"> Pesquisar </BotaoPesquisar>
             </Form>
 
             <div>
               <ListaUsuarios />
             </div>
-          </div>
+          </Container>
         );
     }
 }

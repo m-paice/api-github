@@ -1,3 +1,8 @@
+/**
+ * @author Matheus Paice <matheus.paice@gmail.com>
+ * @description Arquivo responsável criar um modelo de requisições para o projeto
+ */
+
 import axios from 'axios';
 import { URLBASE } from '../config/config';
 

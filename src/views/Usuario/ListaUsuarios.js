@@ -3,19 +3,23 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
+import { ContainerLista, ItensLista, TextoItem } from '../../css/styles';
+
 const ListaUsuarios = ({ usuarios, carregando, erro }) => {
     if (carregando) return <div> Carregando... </div>;
     if (erro) return <div> Erro </div>;
 
     return (
-      <ul>
+      <ContainerLista>
         {usuarios &&
                 usuarios.map(value => (
                   <Link to={`/usuario/${value.login}`} key={value.id}>
-                    <li> {value.login}</li>
+                    <ItensLista>
+                      <TextoItem> {value.login} </TextoItem>
+                    </ItensLista>
                   </Link>
                 ))}
-      </ul>
+      </ContainerLista>
     );
 };
 

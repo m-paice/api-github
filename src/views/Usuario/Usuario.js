@@ -7,6 +7,8 @@ import { Creators as TypesActionsUsuario } from '../../store/ducks/usuario';
 
 import Repositorio from '../Repositorios/ListaRepositorios';
 
+import { ContainerPerfil, FotoPerfil, InformacaoPerfil, NomeUsuario } from '../../css/styles';
+
 const Usuario = ({ match, exibirUsuario, listarRepositorio, usuario, repositorios, carregando, erro }) => {
     useEffect(() => {
         exibirUsuario(match.params.id);
@@ -16,20 +18,23 @@ const Usuario = ({ match, exibirUsuario, listarRepositorio, usuario, repositorio
     if (carregando) return <div> Carregando... </div>;
     if (erro) return <div> Erro </div>;
     return (
-      <div>
+      <ContainerPerfil>
         {usuario && (
         <div>
-                    Nome: {usuario.login} <br />
-                    Seguidores: {usuario.followers} <br />
-                    Seguidos: {usuario.following} <br />
-          <img alt="" src={usuario.avatar_url} width="80px" height="80px" /> <br />
-                    E-mail: {usuario.email} <br />
-                    Bio: {usuario.bio} <br />
+          <FotoPerfil alt="" src={usuario.avatar_url} width="80px" height="80px" /> <br />
+          <InformacaoPerfil>
+            <NomeUsuario> {usuario.login} </NomeUsuario>
+            {usuario.bio} <br />
+                        followers: {usuario.followers} <i className="fas fa-heart" /> following: {usuario.following}{' '}
+            <i className="fas fa-paper-plane" />
+            <br />
+            {usuario.email && `E-mail: ${usuario.email}`} <br />
+          </InformacaoPerfil>
         </div>
             )}
 
         {usuario && <Repositorio repositorios={repositorios} />}
-      </div>
+      </ContainerPerfil>
     );
 };
 
