@@ -34,9 +34,7 @@
         "lint": "eslint src/",
         "lint:fix": "eslint --fix src/",
         "start": "webpack-dev-server --config webpack.config.js --open --host 0.0.0.0",
-        "build": "webpack --progress --bail --env prod -p --config webpack.config.js",
-        "test": "react-scripts test",
-        "eject": "react-scripts eject"
+        "build": "webpack"
     },
     "eslintConfig": {
         "extends": "react-app"
