@@ -91,6 +91,7 @@ export const InformacaoPerfil = styled.div`
 export const StartComponent = styled.span`
     position: absolute;
     right: 20px;
+    color: #fff;
 `;
 
 export const NomeUsuario = styled.h1`
@@ -114,4 +115,44 @@ export const BotaoOrdenar = styled.button`
     /* position: absolute; */
     right: 0;
     color: white;
+`;
+
+export const Botao = styled.button`
+    padding: 5px;
+    width: 150px;
+    height: 30px;
+    background: green;
+    border: none;
+    font-size: 15px;
+    border-radius: 5px;
+    /* position: absolute; */
+    right: 0;
+    color: white;
+`;
+
+export const ContentRepositorio = styled.div`
+    position: absolute;
+    top: 10%;
+    left: 5%;
+    color: #fff;
+`;
+
+export const TituloRepo = styled.h1`
+    font-size: 45px;
+    text-transform: uppercase;
+    margin-bottom: 40px;
+`;
+
+export const DivCentro = styled.div`
+    margin-right: 40px;
+    margin-top: 15px;
+`;
+
+export const LinkGit = styled.div`
+    margin-top: 40px;
+    a {
+        text-decoration: none;
+        font-size: 20px;
+        color: #fff;
+    }
 `;

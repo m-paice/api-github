@@ -23,7 +23,7 @@ const ListaRepositorio = ({ repositorios }) => {
                   <TextoItem>
                     {v.name}
                     <StartComponent>
-                      <i className="far fa-star">{v.stargazers_count}</i>
+                      <i className="fas fa-star">{v.stargazers_count}</i>
                     </StartComponent>
                   </TextoItem>
                 </ItensLista>
@@ -39,7 +39,7 @@ const ListaRepositorio = ({ repositorios }) => {
                   <TextoItem>
                     {v.name}
                     <StartComponent>
-                      <i className="far fa-star">{v.stargazers_count}</i>
+                      <i className="fas fa-star">{v.stargazers_count}</i>
                     </StartComponent>
                   </TextoItem>
                 </ItensLista>

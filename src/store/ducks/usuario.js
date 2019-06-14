@@ -16,6 +16,7 @@ export const Types = {
     USUARIO_INICIADO: '@usuario/USUARIO_INICIADO',
     USUARIO_SUCESSO: '@usuario/USUARIO_SUCESSO',
     USUARIO_FALHA: '@usuario/USUARIO_FALHA',
+    ZERA_USUARIO: '@usuario/ZERA_USUARIO',
 
     REPOSITORIO_NAO_INCIADO: '@repositorio/REPOSITORIO_NAO_INCIADO',
     REPOSITORIO_INICIADO: '@repositorio/REPOSITORIO_INICIADO',
@@ -50,6 +51,9 @@ export const Creators = {
             usuario,
             repositorio,
         },
+    }),
+    zeraUsuario: () => ({
+        type: Types.ZERA_USUARIO,
     }),
 };
 
@@ -152,6 +156,13 @@ export const usuario = (state = initialState, action) => {
                 status: Types.EXIBIR_REPOSITORIO_FALHA,
                 carregando: false,
                 erro: true,
+            });
+        case Types.ZERA_USUARIO:
+            return Object.assign({}, state, {
+                status: Types.ZERA_USUARIO,
+                usuarios: [],
+                carregando: false,
+                erro: false,
             });
         default:
             return state;

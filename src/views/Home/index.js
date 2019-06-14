@@ -19,6 +19,14 @@ import ListaUsuarios from '../Usuario/ListaUsuarios';
 
 import { Container, BotaoPesquisar } from '../../css/styles';
 
+const validate = values => {
+    const errors = {};
+    if (!values.search) {
+        errors.search = 'Obrigatório';
+    }
+    return errors;
+};
+
 class Home extends React.Component {
     componentDidMount() {}
 
@@ -57,6 +65,7 @@ const mapDispatchToProps = dispatch => bindActionCreators(ActionsUsuario, dispat
 
 export default reduxForm({
     form: 'search',
+    validate,
 })(
     connect(
         null,
